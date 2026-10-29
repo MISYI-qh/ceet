@@ -12,8 +12,18 @@ android {
         applicationId = "id.ceet.browser"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.2.0"
+    }
+
+    // Kunci debug tetap (sengaja publik) supaya pembaruan APK debug bisa dipasang menimpa versi sebelumnya.
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("ceet-debug.keystore")
+            storePassword = "android"
+            keyAlias = "ceetdebug"
+            keyPassword = "android"
+        }
     }
 
     buildTypes {

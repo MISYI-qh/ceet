@@ -8,3 +8,5 @@ android/app/build/
 android/local.properties
 *.apk
 *.keystore
+
+!android/app/ceet-debug.keystore

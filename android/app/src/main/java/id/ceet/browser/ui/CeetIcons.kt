@@ -55,6 +55,8 @@ object CeetIcons {
         "undo" to listOf(Seg("M9 8L4.5 12.5 9 17", false), Seg("M5 12.5h9a5 5 0 0 1 5 5", false)),
         "tab" to listOf(Seg("M6 6.5h12a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1 -2.5 2.5h-12a2.5 2.5 0 0 1 -2.5 -2.5v-7a2.5 2.5 0 0 1 2.5 -2.5z", false), Seg("M3.5 10h17", false)),
         "list" to listOf(Seg("M8.5 6.5h11M8.5 12h11M8.5 17.5h11M4.5 6.5h.1M4.5 12h.1M4.5 17.5h.1", false)),
+        "share" to listOf(Seg("M3.8 12a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0z", false), Seg("M15.3 6a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0z", false), Seg("M15.3 18a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0z", false), Seg("M8 11l7.5-4M8 13l7.5 4", false)),
+        "monitor" to listOf(Seg("M5.5 5h13a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-13a2 2 0 0 1 -2 -2v-7a2 2 0 0 1 2 -2z", false), Seg("M9 20h6M12 16v4", false)),
         "bolt" to listOf(Seg("M13 3.5L5.5 13.5H11l-1 7 7.5-10H12z", false)),
     )
 

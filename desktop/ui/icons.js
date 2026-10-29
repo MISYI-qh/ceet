@@ -43,6 +43,8 @@
     undo: '<path d="M9 8L4.5 12.5 9 17"/><path d="M5 12.5h9a5 5 0 0 1 5 5"/>',
     tab: '<rect x="3.5" y="6.5" width="17" height="12" rx="2.5"/><path d="M3.5 10h17"/>',
     list: '<path d="M8.5 6.5h11M8.5 12h11M8.5 17.5h11M4.5 6.5h.1M4.5 12h.1M4.5 17.5h.1"/>',
+    share: '<circle cx="6" cy="12" r="2.2"/><circle cx="17.5" cy="6" r="2.2"/><circle cx="17.5" cy="18" r="2.2"/><path d="M8 11l7.5-4M8 13l7.5 4"/>',
+    monitor: '<rect x="3.5" y="5" width="17" height="11" rx="2"/><path d="M9 20h6M12 16v4"/>',
     bolt: '<path d="M13 3.5L5.5 13.5H11l-1 7 7.5-10H12z"/>'
   };
   function svg(name, size, extra) {
