@@ -1,0 +1,21 @@
+[package]
+name = "ceet-engine"
+version = "0.1.0"
+edition = "2021"
+description = "Mesin inti Ceet: privasi, omnibox, pencarian hibrida lokal, ringkasan, dan deteksi phishing. Tanpa dependensi."
+license = "MIT"
+
+[lib]
+name = "ceet_engine"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ceet-engine"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"

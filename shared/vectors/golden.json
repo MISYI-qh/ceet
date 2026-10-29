@@ -1,0 +1,447 @@
+{
+ "classify": [
+  {
+   "input": "kompas.com",
+   "expect": {
+    "kind": "url",
+    "value": "https://kompas.com",
+    "arg": "",
+    "target": "https://kompas.com"
+   }
+  },
+  {
+   "input": "detik.com/news?x=1",
+   "expect": {
+    "kind": "url",
+    "value": "https://detik.com/news?x=1",
+    "arg": "",
+    "target": "https://detik.com/news?x=1"
+   }
+  },
+  {
+   "input": "localhost:3000",
+   "expect": {
+    "kind": "url",
+    "value": "http://localhost:3000",
+    "arg": "",
+    "target": "http://localhost:3000"
+   }
+  },
+  {
+   "input": "https://a.id/x",
+   "expect": {
+    "kind": "url",
+    "value": "https://a.id/x",
+    "arg": "",
+    "target": "https://a.id/x"
+   }
+  },
+  {
+   "input": "192.168.1.1",
+   "expect": {
+    "kind": "url",
+    "value": "http://192.168.1.1",
+    "arg": "",
+    "target": "http://192.168.1.1"
+   }
+  },
+  {
+   "input": "github.com/anthropics",
+   "expect": {
+    "kind": "url",
+    "value": "https://github.com/anthropics",
+    "arg": "",
+    "target": "https://github.com/anthropics"
+   }
+  },
+  {
+   "input": "resep nasi goreng",
+   "expect": {
+    "kind": "search",
+    "value": "resep nasi goreng",
+    "arg": "",
+    "target": "https://duckduckgo.com/?q=resep%20nasi%20goreng"
+   }
+  },
+  {
+   "input": "file.rs",
+   "expect": {
+    "kind": "search",
+    "value": "file.rs",
+    "arg": "",
+    "target": "https://duckduckgo.com/?q=file.rs"
+   }
+  },
+  {
+   "input": "versi 2.0",
+   "expect": {
+    "kind": "search",
+    "value": "versi 2.0",
+    "arg": "",
+    "target": "https://duckduckgo.com/?q=versi%202.0"
+   }
+  },
+  {
+   "input": "kopi",
+   "expect": {
+    "kind": "search",
+    "value": "kopi",
+    "arg": "",
+    "target": "https://duckduckgo.com/?q=kopi"
+   }
+  },
+  {
+   "input": "kenapa langit berwarna biru",
+   "expect": {
+    "kind": "question",
+    "value": "kenapa langit berwarna biru",
+    "arg": "",
+    "target": "https://duckduckgo.com/?q=kenapa%20langit%20berwarna%20biru"
+   }
+  },
+  {
+   "input": "harga emas hari ini?",
+   "expect": {
+    "kind": "question",
+    "value": "harga emas hari ini",
+    "arg": "",
+    "target": "https://duckduckgo.com/?q=harga%20emas%20hari%20ini"
+   }
+  },
+  {
+   "input": "what is the capital of france",
+   "expect": {
+    "kind": "question",
+    "value": "what is the capital of france",
+    "arg": "",
+    "target": "https://duckduckgo.com/?q=what%20is%20the%20capital%20of%20france"
+   }
+  },
+  {
+   "input": "> tema gelap",
+   "expect": {
+    "kind": "command",
+    "value": "tema",
+    "arg": "gelap",
+    "target": null
+   }
+  },
+  {
+   "input": "   ",
+   "expect": {
+    "kind": "empty",
+    "value": "",
+    "arg": "",
+    "target": null
+   }
+  },
+  {
+   "input": "ftp://berkas.id/a",
+   "expect": {
+    "kind": "search",
+    "value": "ftp://berkas.id/a",
+    "arg": "",
+    "target": "https://duckduckgo.com/?q=ftp%3A%2F%2Fberkas.id%2Fa"
+   }
+  },
+  {
+   "input": "bca.co.id",
+   "expect": {
+    "kind": "url",
+    "value": "https://bca.co.id",
+    "arg": "",
+    "target": "https://bca.co.id"
+   }
+  },
+  {
+   "input": "a.b",
+   "expect": {
+    "kind": "search",
+    "value": "a.b",
+    "arg": "",
+    "target": "https://duckduckgo.com/?q=a.b"
+   }
+  },
+  {
+   "input": "tokopedia.com/p?id=1",
+   "expect": {
+    "kind": "url",
+    "value": "https://tokopedia.com/p?id=1",
+    "arg": "",
+    "target": "https://tokopedia.com/p?id=1"
+   }
+  }
+ ],
+ "clean_url": [
+  {
+   "input": "https://toko.id/p?id=7&utm_campaign=a&fbclid=xyz&_ga=1&warna=biru",
+   "expect": {
+    "url": "https://toko.id/p?id=7&warna=biru",
+    "upgraded": false,
+    "removed": [
+     "utm_campaign",
+     "fbclid",
+     "_ga"
+    ]
+   }
+  },
+  {
+   "input": "http://contoh.id/a?gclid=1",
+   "expect": {
+    "url": "https://contoh.id/a",
+    "upgraded": true,
+    "removed": [
+     "gclid"
+    ]
+   }
+  },
+  {
+   "input": "http://localhost:8080/x?utm_source=a",
+   "expect": {
+    "url": "http://localhost:8080/x",
+    "upgraded": false,
+    "removed": [
+     "utm_source"
+    ]
+   }
+  },
+  {
+   "input": "http://192.168.0.5/p",
+   "expect": {
+    "url": "http://192.168.0.5/p",
+    "upgraded": false,
+    "removed": []
+   }
+  },
+  {
+   "input": "https://youtube.com/watch?v=abc&si=zzz&feature=share",
+   "expect": {
+    "url": "https://youtube.com/watch?v=abc",
+    "upgraded": false,
+    "removed": [
+     "si",
+     "feature"
+    ]
+   }
+  },
+  {
+   "input": "https://a.id/?q=kopi&utm_medium=x#bagian",
+   "expect": {
+    "url": "https://a.id/?q=kopi#bagian",
+    "upgraded": false,
+    "removed": [
+     "utm_medium"
+    ]
+   }
+  }
+ ],
+ "phishing": [
+  {
+   "input": "https://www.google.com/search?q=a",
+   "expect": {
+    "risk": "aman",
+    "score": 0,
+    "reasons": []
+   }
+  },
+  {
+   "input": "https://accounts.google.com/signin",
+   "expect": {
+    "risk": "aman",
+    "score": 0,
+    "reasons": []
+   }
+  },
+  {
+   "input": "https://www.bca.co.id/id/login",
+   "expect": {
+    "risk": "aman",
+    "score": 0,
+    "reasons": []
+   }
+  },
+  {
+   "input": "https://github.com/x/y",
+   "expect": {
+    "risk": "aman",
+    "score": 0,
+    "reasons": []
+   }
+  },
+  {
+   "input": "https://paypa1.com/login",
+   "expect": {
+    "risk": "berbahaya",
+    "score": 68,
+    "reasons": [
+     "Menyamar sebagai \"paypal\" dengan huruf pengganti",
+     "Kata pancingan di alamat (login, verifikasi, dan sejenisnya)"
+    ]
+   }
+  },
+  {
+   "input": "https://tokopedla.com/",
+   "expect": {
+    "risk": "waspada",
+    "score": 40,
+    "reasons": [
+     "Ejaan hampir sama dengan \"tokopedia\""
+    ]
+   }
+  },
+  {
+   "input": "https://login.bca.co.id.verifikasi-akun.xyz/",
+   "expect": {
+    "risk": "berbahaya",
+    "score": 85,
+    "reasons": [
+     "Terlalu banyak subdomain",
+     "Akhiran domain sering dipakai penipuan",
+     "Memakai nama \"bca\" di subdomain padahal domain aslinya verifikasi-akun.xyz",
+     "Beberapa kata pancingan di alamat (login, verifikasi, dan sejenisnya)"
+    ]
+   }
+  },
+  {
+   "input": "http://secure-dana-hadiah.top/klaim/login",
+   "expect": {
+    "risk": "berbahaya",
+    "score": 65,
+    "reasons": [
+     "Koneksi tidak terenkripsi (http)",
+     "Akhiran domain sering dipakai penipuan",
+     "Nama situs menempelkan merek \"dana\"",
+     "Beberapa kata pancingan di alamat (login, verifikasi, dan sejenisnya)"
+    ]
+   }
+  },
+  {
+   "input": "https://xn--pypal-4ve.com/",
+   "expect": {
+    "risk": "waspada",
+    "score": 45,
+    "reasons": [
+     "Nama situs memakai karakter menyerupai (punycode)",
+     "Banyak tanda hubung di nama situs"
+    ]
+   }
+  },
+  {
+   "input": "http://45.12.77.9/bank/login",
+   "expect": {
+    "risk": "waspada",
+    "score": 48,
+    "reasons": [
+     "Koneksi tidak terenkripsi (http)",
+     "Memakai alamat IP, bukan nama situs",
+     "Kata pancingan di alamat (login, verifikasi, dan sejenisnya)"
+    ]
+   }
+  },
+  {
+   "input": "https://google.com@evil.example/",
+   "expect": {
+    "risk": "waspada",
+    "score": 35,
+    "reasons": [
+     "Alamat memuat tanda @ yang menyembunyikan tujuan asli"
+    ]
+   }
+  },
+  {
+   "input": "https://id.wikipedia.org/wiki/Kopi",
+   "expect": {
+    "risk": "aman",
+    "score": 0,
+    "reasons": []
+   }
+  },
+  {
+   "input": "https://kompas.com/read/2026",
+   "expect": {
+    "risk": "aman",
+    "score": 0,
+    "reasons": []
+   }
+  },
+  {
+   "input": "http://localhost:8080/login",
+   "expect": {
+    "risk": "aman",
+    "score": 8,
+    "reasons": [
+     "Kata pancingan di alamat (login, verifikasi, dan sejenisnya)"
+    ]
+   }
+  }
+ ],
+ "block": [
+  {
+   "input": {
+    "host": "www.google-analytics.com",
+    "page": "toko.id"
+   },
+   "expect": {
+    "block": true,
+    "rule": "google-analytics.com"
+   }
+  },
+  {
+   "input": {
+    "host": "fonts.gstatic.com",
+    "page": "toko.id"
+   },
+   "expect": {
+    "block": false
+   }
+  },
+  {
+   "input": {
+    "host": "cdn.hotjar.com",
+    "page": "berita.id"
+   },
+   "expect": {
+    "block": true,
+    "rule": "hotjar.com"
+   }
+  },
+  {
+   "input": {
+    "host": "static.hotjar.com",
+    "page": "hotjar.com"
+   },
+   "expect": {
+    "block": false
+   }
+  },
+  {
+   "input": {
+    "host": "connect.facebook.net",
+    "page": "facebook.com"
+   },
+   "expect": {
+    "block": true,
+    "rule": "connect.facebook.net"
+   }
+  },
+  {
+   "input": {
+    "host": "api.mixpanel.com",
+    "page": "toko.id"
+   },
+   "expect": {
+    "block": true,
+    "rule": "api.mixpanel.com"
+   }
+  },
+  {
+   "input": {
+    "host": "kompas.com",
+    "page": "detik.com"
+   },
+   "expect": {
+    "block": false
+   }
+  }
+ ]
+}

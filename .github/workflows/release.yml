@@ -1,0 +1,61 @@
+name: Rilis
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Bangun mesin
+        run: cargo build --release --manifest-path engine/Cargo.toml
+      - name: Salin mesin ke paket desktop
+        shell: bash
+        run: |
+          mkdir -p desktop/engine-bin
+          cp engine/target/release/ceet-engine* desktop/engine-bin/ 2>/dev/null || true
+          rm -f desktop/engine-bin/*.d desktop/engine-bin/*.pdb
+      - name: Pasang dan bangun
+        working-directory: desktop
+        run: |
+          npm install
+          npm test
+          npx electron-builder --publish never
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ceet-desktop-${{ matrix.os }}
+          path: |
+            desktop/dist/*.AppImage
+            desktop/dist/*.deb
+            desktop/dist/*.exe
+            desktop/dist/*.zip
+            desktop/dist/*.dmg
+
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+      - run: cd android && gradle assembleDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ceet-android-apk
+          path: android/app/build/outputs/apk/debug/*.apk

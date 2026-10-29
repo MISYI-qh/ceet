@@ -1,0 +1,10 @@
+engine/target/
+desktop/node_modules/
+desktop/dist/
+desktop/engine-bin/ceet-engine*
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.apk
+*.keystore

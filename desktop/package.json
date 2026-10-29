@@ -1,0 +1,33 @@
+{
+  "name": "ceet",
+  "productName": "Ceet",
+  "version": "0.1.0",
+  "description": "Ceet: peramban privat dengan pencarian lokal dan ringkasan tanpa server.",
+  "main": "src/main.js",
+  "author": "Faqih Musyaffa",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.js",
+    "engine": "cargo build --release --manifest-path ../engine/Cargo.toml",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "id.ceet.browser",
+    "productName": "Ceet",
+    "directories": { "output": "dist" },
+    "files": ["src/**", "ui/**", "assets/**", "package.json"],
+    "extraResources": [
+      { "from": "../data/blocklist.txt", "to": "blocklist.txt" },
+      { "from": "engine-bin/", "to": "engine/", "filter": ["**/*"] }
+    ],
+    "linux": { "target": ["AppImage", "deb"], "category": "Network", "icon": "assets/icon.png" },
+    "win": { "target": ["nsis", "zip"], "icon": "assets/icon.png" },
+    "mac": { "target": ["dmg", "zip"], "category": "public.app-category.productivity", "icon": "assets/icon.png" },
+    "protocols": [{ "name": "Ceet web link", "schemes": ["http", "https"] }]
+  }
+}

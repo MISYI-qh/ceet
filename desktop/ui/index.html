@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: https: http: ceet:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>Ceet</title>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="shell.css">
+</head>
+<body class="shell">
+<header class="strip" id="strip">
+  <div class="tabs" id="tabs" role="tablist" aria-label="Tab"></div>
+  <button class="newtab" id="newTab" aria-label="Tab baru" title="Tab baru (Ctrl+T)"><i data-ic="plus" data-s="18"></i></button>
+  <div class="drag"></div>
+</header>
+<div class="toolbar" id="toolbar">
+  <div class="navbtns">
+    <button class="tb" id="back" aria-label="Kembali" title="Kembali"><i data-ic="back"></i></button>
+    <button class="tb" id="forward" aria-label="Maju" title="Maju"><i data-ic="forward"></i></button>
+    <button class="tb" id="reload" aria-label="Muat ulang" title="Muat ulang"><i data-ic="reload"></i></button>
+    <button class="tb" id="home" aria-label="Beranda" title="Beranda"><i data-ic="home"></i></button>
+  </div>
+  <form class="omnibox" id="omniForm" autocomplete="off">
+    <button type="button" class="shieldbtn" id="shield" aria-label="Perlindungan privasi" title="Perlindungan privasi"><span id="shieldIc"></span><span class="count" id="shieldCount" hidden></span></button>
+    <span class="secure" id="secure"></span>
+    <input id="omni" type="text" spellcheck="false" placeholder="Cari atau ketik alamat" aria-label="Alamat atau pencarian" aria-autocomplete="list" aria-controls="sug" enterkeyhint="go">
+    <span class="privbadge" id="privBadge" hidden><i data-ic="eyeOff" data-s="15"></i>Privat</span>
+    <button type="button" class="tb small" id="star" aria-label="Simpan penanda" title="Simpan penanda (Ctrl+D)"></button>
+  </form>
+  <div class="navbtns">
+    <button class="tb" id="reader" aria-label="Mode baca dan ringkasan" title="Mode baca dan ringkasan"><i data-ic="reader"></i></button>
+    <button class="tb" id="menu" aria-label="Menu" title="Menu"><i data-ic="dots"></i></button>
+  </div>
+</div>
+<div class="findbar" id="findbar" hidden>
+  <i data-ic="search" data-s="16"></i>
+  <input id="findInput" type="text" placeholder="Cari di halaman" aria-label="Cari di halaman" spellcheck="false">
+  <span class="findcount" id="findCount"></span>
+  <button class="tb small" id="findPrev" aria-label="Sebelumnya"><i data-ic="chevronUp" data-s="16"></i></button>
+  <button class="tb small" id="findNext" aria-label="Berikutnya"><i data-ic="chevronDown" data-s="16"></i></button>
+  <button class="tb small" id="findClose" aria-label="Tutup pencarian"><i data-ic="close" data-s="16"></i></button>
+</div>
+<script src="icons.js"></script>
+<script src="shell.js"></script>
+</body>
+</html>
